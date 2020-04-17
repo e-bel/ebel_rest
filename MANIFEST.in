@@ -1,0 +1,14 @@
+graft src
+graft tests
+
+recursive-include docs/source *.py
+recursive-include docs/source *.rst
+include docs/Makefile
+
+recursive-include notebooks *.ipynb
+
+global-exclude *.py[cod] __pycache__ *.so .DS_Store .ipynb_checkpoints/* docs/build/*
+
+exclude .bumpversion.cfg docs/build
+
+include *.rst *.txt *.yml LICENSE tox.ini .flake8
