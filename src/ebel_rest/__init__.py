@@ -4,4 +4,4 @@
 
 __author__ = """Christian Ebeling"""
 __email__ = 'Christian.Ebeling@scai.fraunhofer.de'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
