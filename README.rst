@@ -18,7 +18,6 @@ Usage
 This API interface package is designed to simplify communicating with an e(BE:L) generated knowledge graph. Examples
 of how to use this package and its methods can be found in `Examples notebook <notebooks/Examples.ipynb>`_.
 
-* Documentation: https://ebel-rest.readthedocs.io.
 
 Disclaimer
 ----------
