@@ -16,7 +16,8 @@ Installation |python_versions| |pypi| |pypi_license|
 Usage
 --------
 This API interface package is designed to simplify communicating with an e(BE:L) generated knowledge graph. Examples
-of how to use this package and its methods can be found in `Examples notebook <notebooks/Examples.ipynb>`_.
+of how to use this package and its methods can be found in
+`Examples notebook <https://github.com/e-bel/ebel_rest/blob/master/notebooks/Examples.ipynb>`_.
 
 
 Disclaimer
@@ -37,6 +38,7 @@ The COVID-19 Knowledge Graph is a resource developed in an academic capacity fun
         :alt: Documentation Status
 
 .. |pypi_license| image:: https://img.shields.io/pypi/l/ebel_rest.svg
+    :target: https://pypi.python.org/pypi/ebel_rest
     :alt: MIT License
 
 .. |python_versions| image:: https://img.shields.io/pypi/pyversions/ebel_rest.svg
