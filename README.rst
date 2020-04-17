@@ -37,7 +37,7 @@ The COVID-19 Knowledge Graph is a resource developed in an academic capacity fun
         :alt: Documentation Status
 
 .. |pypi_license| image:: https://img.shields.io/pypi/l/ebel_rest.svg
-    :alt: MIT
+    :alt: MIT License
 
 .. |python_versions| image:: https://img.shields.io/pypi/pyversions/ebel_rest.svg
     :alt: Stable Supported Python Versions
