@@ -1,4 +1,4 @@
-e(BE:L) RESTful API Client |docs| |travis|
+e(BE:L) RESTful API Client |docs|
 ==================================================
 
 **e(BE:L) RESTful API Client** is a client for the easy usage of API methods provided be an e(BE:L) knowledge server.
