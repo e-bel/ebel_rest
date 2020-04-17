@@ -10,7 +10,7 @@ Installation |python_versions| |pypi| |pypi_license|
 
 .. code-block:: sh
 
-    $ pip install git+https://gitlab.scai.fraunhofer.de/christian.ebeling/ebel_rest.git
+    $ pip install git+https://github.com/e-bel/ebel_rest
 
 
 Usage
