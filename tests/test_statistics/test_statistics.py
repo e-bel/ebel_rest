@@ -1,3 +1,4 @@
+"""Testing module for statistics"""
 from ebel_rest import statistics, connect
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
