@@ -1,6 +1,11 @@
 from .core import Statistics
 
 
+def summarize() -> Statistics:
+    """Returns summary statistics on the graph."""
+    return Statistics().apply_api_function('bel_statistics_summarize')
+
+
 def publication_by_year() -> Statistics:
     """Returns statistics on the number of publications per year in the knowledge graph."""
     return Statistics().apply_api_function('_bel_statistics_publication_by_year')

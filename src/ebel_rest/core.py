@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 
 """Main module."""
-
-import urllib.parse
-import urllib.request
-import json
-import pandas as pd
-from IPython.display import display, Image
-import graphviz
 import os
 import re
+import json
+
+import graphviz
+import urllib.parse
+import urllib.request
+import pandas as pd
+from IPython.display import display, Image
 
 from .visualisation.colours.graphviz import edge_colours, node_colours
+
 
 pd.set_option('display.max_colwidth', None)
 pics_path = 'pics/algorithms/'
@@ -84,9 +85,9 @@ class Client:
     @property
     def table(self):
         """Returns pandas dataframe."""
-        cols = ['subject_bel', 'relation', 'object_bel', 'pmid', 'edge_id']
         if len(self._data):
             if 'edge_id' in self._data[0].keys():
+                cols = ['subject_bel', 'relation', 'object_bel', 'pmid', 'edge_id']
                 results = [tuple([x[col] for col in cols]) for x in self._data]
                 df = pd.DataFrame(results, columns=cols)
                 df.set_index('edge_id', inplace=True)
