@@ -46,13 +46,6 @@ class TestStatistics:
         assert len(stats.table.columns) == 3
         assert len(stats.table.index) > 0
 
-    def test_node_namespace_order_by_count(self):
-        connect(USER, PASSWORD, SERVER, DATABASE)
-        stats = statistics.node_namespace_order_by_count()
-        assert stats.data is not None
-        assert len(stats.table.columns) == 3
-        assert len(stats.table.index) > 0
-
     def test_edges(self):
         connect(USER, PASSWORD, SERVER, DATABASE)
         stats = statistics.edges()
