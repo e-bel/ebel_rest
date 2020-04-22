@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """Main module."""
 import os
 import re
@@ -12,12 +10,10 @@ import pandas as pd
 from IPython.display import display, Image
 
 from .visualisation.colours.graphviz import edge_colours, node_colours
+from .defaults import pics_path
 
 
 pd.set_option('display.max_colwidth', None)
-pics_path = 'pics/algorithms/'
-if not os.path.isdir(pics_path):
-    os.makedirs(pics_path)
 
 
 class Connector:
