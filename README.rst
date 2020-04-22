@@ -1,4 +1,4 @@
-e(BE:L) RESTful API Client |docs|
+e(BE:L) RESTful API Client |docs| |coverage|
 ==================================================
 
 **e(BE:L) RESTful API Client** is a client for the easy usage of API methods provided be an e(BE:L) knowledge server.
@@ -30,7 +30,7 @@ The COVID-19 Knowledge Graph is a resource developed in an academic capacity fun
 .. |pypi| image:: https://img.shields.io/pypi/v/ebel_rest.svg
         :target: https://pypi.python.org/pypi/ebel_rest
 
-.. |travis| image:: https://img.shields.io/travis/cebel/ebel_rest.svg
+.. |travis| image:: https://img.shields.io/travis/e-bel/ebel_rest.svg
         :target: https://travis-ci.org/cebel/ebel_rest
 
 .. |docs| image:: https://readthedocs.org/projects/ebel-rest/badge/?version=latest
@@ -43,3 +43,7 @@ The COVID-19 Knowledge Graph is a resource developed in an academic capacity fun
 
 .. |python_versions| image:: https://img.shields.io/pypi/pyversions/ebel_rest.svg
     :alt: Stable Supported Python Versions
+
+.. |coverage| image:: https://codecov.io/gh/e-bel/ebel_rest/coverage.svg?branch=master
+    :target: https://codecov.io/gh/e-bel/ebel_rest?branch=master
+    :alt: Coverage Status
