@@ -1,4 +1,4 @@
-e(BE:L) RESTful API Client |docs| |coverage|
+e(BE:L) RESTful API Client
 ==================================================
 
 **e(BE:L) RESTful API Client** is a client for the easy usage of API methods provided be an e(BE:L) knowledge server.
@@ -10,7 +10,7 @@ Installation |python_versions| |pypi| |pypi_license|
 
 .. code-block:: sh
 
-    $ pip install git+https://github.com/e-bel/ebel_rest
+    $ pip install ebel_rest
 
 
 Usage
