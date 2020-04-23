@@ -26,6 +26,11 @@ def last_author_by_number_of_statements() -> Statistics():
     return Statistics().apply_api_function('_bel_statistics_last_author_by_number_of_statements')
 
 
+def namespace_by_count() -> Statistics:
+    """Returns the number of nodes for each namespace in KG."""
+    return Statistics().apply_api_function('bel_statistics_namespace_count')
+
+
 def node_namespace_order_by_count() -> Statistics():
     """Returns statistics on the frequency of each node type and each namespace in the knowledge graph
     in order of count."""

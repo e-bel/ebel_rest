@@ -1,4 +1,5 @@
 """Testing module for statistics"""
+import pandas as pd
 from ebel_rest import statistics, connect
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
@@ -28,6 +29,12 @@ class TestStatistics:
         assert stats.data is not None
         assert len(stats.table.columns) == 2
         assert len(stats.table.index) > 0
+
+    def test_namespace_by_count(self):
+        stats = statistics.namespace_by_count()
+        assert type(stats.table) == pd.DataFrame
+        assert len(stats.table.columns) == 2
+        assert 'HGNC' in stats.table['namespace'].values
 
     def test_last_author_by_number_of_statements(self):
         stats = statistics.last_author_by_number_of_statements()
