@@ -1,4 +1,4 @@
-from .core import Graph
+from .core import Graph, Client
 from typing import List
 
 
@@ -38,6 +38,11 @@ def last_author(namespace: str, name: str = '') -> Graph:
 
 def pmid(pmid: int) -> Graph:
     return Graph().apply_api_function('_bel_by_pmid', pmid)
+
+
+def list_pmids() -> list:
+    """Returns a list of PMIDs in KG."""
+    return Client().apply_api_function('all_pmids').table['distinct'].values.tolist()
 
 
 def subgraph(namespace: str, name: str = '') -> Graph:
