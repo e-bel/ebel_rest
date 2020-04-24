@@ -22,7 +22,7 @@ copyright = '2020, Christian Ebeling, Bruce Schultz'
 author = 'Christian Ebeling, Bruce Schultz'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.7'
+release = '1.0.8'
 
 
 # -- General configuration ---------------------------------------------------
