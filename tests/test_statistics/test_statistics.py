@@ -30,6 +30,12 @@ class TestStatistics:
         assert len(stats.table.columns) == 2
         assert len(stats.table.index) > 0
 
+    def test_node_namespace_order_by_namespace(self):
+        stats = statistics.node_namespace_order_by_namespace()
+        assert stats.data is not None
+        assert len(stats.table.columns) == 3
+        assert len(stats.table.index) > 0
+
     def test_namespace_by_count(self):
         stats = statistics.namespace_by_count()
         assert type(stats.table) == pd.DataFrame
@@ -88,9 +94,9 @@ class TestStatistics:
         assert len(pivot.index) > 0
 
     def test_nodes_by_pmid(self):
-        no_pivot = statistics.edges_by_pmid(pivot=False)
+        no_pivot = statistics.nodes_by_pmid(pivot=False)
         assert no_pivot.data is not None
-        assert len(no_pivot.table.columns) == 3
+        assert len(no_pivot.table.columns) == 2
         assert len(no_pivot.table.index) > 0
 
         pivot = statistics.nodes_by_pmid(pivot=True)
