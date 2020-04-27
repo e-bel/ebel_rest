@@ -13,7 +13,6 @@ def export_graph(graph_path: str,
                  graph_delim: str = ',',
                  mapping_path: str = None,
                  map_delim: str = ',',
-                 include_ebel_nodes: bool = False,
                  ) -> Tuple[str, str]:
     """Exports the Knowledge Graph to an output file.
 
@@ -31,9 +30,9 @@ def export_graph(graph_path: str,
         for graph_path.
     map_delim: {'\t', ',', ' '}
         A one-character string used to separate fields in the mapping file. It defaults to ','
-    include_ebel_nodes: bool
-        Whether to include the e(BE:L) generated nodes in the exported file. If True, the RID will be used as the node
-        identifiers as not all nodes will have a BEL statement.
+    # include_ebel_nodes: bool
+    #     Whether to include the e(BE:L) generated nodes in the exported file. If True, the RID will be used as the node
+    #     identifiers as not all nodes will have a BEL statement.
     graph_delim: {'\t', ',', ' '}
         A one-character string used to separate fields in the graph file. It defaults to ','
 
