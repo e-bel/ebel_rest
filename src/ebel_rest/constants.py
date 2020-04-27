@@ -1,0 +1,2 @@
+INDEX = 'index'
+BEL = 'bel'
