@@ -30,9 +30,6 @@ def export_graph(graph_path: str,
         for graph_path.
     map_delim: {'\t', ',', ' '}
         A one-character string used to separate fields in the mapping file. It defaults to ','
-    # include_ebel_nodes: bool
-    #     Whether to include the e(BE:L) generated nodes in the exported file. If True, the RID will be used as the node
-    #     identifiers as not all nodes will have a BEL statement.
     graph_delim: {'\t', ',', ' '}
         A one-character string used to separate fields in the graph file. It defaults to ','
 
@@ -161,12 +158,12 @@ def _write_sif_file(graph_path: str, graph_data: dict, delimiter: str = None) ->
 def _create_mapping(relations: List[dict], ) -> dict:
     """Generates a mapping dict of rids to integers"""
     nodes = dict()
-    
+
     # Map rids to their BEL statements
     for rel in relations:
         nodes[rel['out_rid']] = {BEL: rel['out_bel']}
         nodes[rel['in_rid']] = {BEL: rel['in_bel']}
-        
+
     for index, rid in enumerate(set(nodes.keys())):
         nodes[rid][INDEX] = index
 

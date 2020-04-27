@@ -13,25 +13,6 @@ def annotation(namespace: str, name: str = '') -> Graph:
     return Graph().apply_api_function('_bel_by_annotation', namespace, name)
 
 
-# def authors(author_list: List[str], edge_class: str = '', node_class: str = '', exclude_namespace: str = '') -> Graph:
-#     """Retrieve a list of BEL statements defined by a list of authors. For greater specificity, an edge and node class
-#     can be passed to filter results as well as namespaces to exclude.
-#
-#     :param List[str] author_list: List of author names of publications.
-#     :param str edge_class: Desired edge class to filter results by.
-#     :param str node_class: Desired node class to filter results by.
-#     :param str exclude_namespace: Namespace to exclude in result set.
-#     :return: Graph of the results.
-#     :rtype: Graph
-#     """
-#     authors_query_str = ",".join(author_list)
-#     return Graph().apply_api_function('_bel_by_authors',
-#                                       authors_query_str,
-#                                       edge_class,
-#                                       node_class,
-#                                       exclude_namespace)
-
-
 def last_author(namespace: str, name: str = '') -> Graph:
     return Graph().apply_api_function('_bel_by_last_author', namespace, name)
 
