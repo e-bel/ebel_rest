@@ -54,11 +54,16 @@ class TestExport:
                                     graph_delim='^',)
         assert str(e.value) == "delimiter must be either '\t', ',', ' '"
 
-    if os.path.isfile(TEST_GFP):
-        os.remove(TEST_GFP)
+    def test_remove_test_files(self):
+        if os.path.isfile(TEST_GFP):
+            os.remove(TEST_GFP)
 
-    if os.path.isfile(TEST_MFP):
-        os.remove(TEST_MFP)
+        if os.path.isfile(TEST_MFP):
+            os.remove(TEST_MFP)
 
-    if os.path.isfile(TEST_MISSING_MFP):
-        os.remove(TEST_MISSING_MFP)
+        if os.path.isfile(TEST_MISSING_MFP):
+            os.remove(TEST_MISSING_MFP)
+
+        assert not os.path.isfile(TEST_MFP)
+        assert not os.path.isfile(TEST_MFP)
+        assert not os.path.isfile(TEST_MISSING_MFP)
