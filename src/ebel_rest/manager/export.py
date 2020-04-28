@@ -4,8 +4,8 @@ import csv
 import json
 from typing import Tuple, List
 
-from .core import Client
-from .constants import BEL, INDEX
+from ebel_rest.manager.core import Client
+from ebel_rest.constants import BEL, INDEX
 
 
 def export_graph(graph_path: str,

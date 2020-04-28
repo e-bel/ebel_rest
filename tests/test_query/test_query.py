@@ -1,5 +1,6 @@
 """Testing module for query"""
-from ebel_rest import query, connect
+from ebel_rest import connect
+from ebel_rest.manager import query
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
 

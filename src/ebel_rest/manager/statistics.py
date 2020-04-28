@@ -2,7 +2,7 @@ from collections import Counter
 
 import pandas as pd
 
-from .core import Statistics
+from ebel_rest.manager.core import Statistics
 
 
 def summarize() -> Statistics:

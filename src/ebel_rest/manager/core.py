@@ -9,8 +9,8 @@ import urllib.request
 import pandas as pd
 from IPython.display import display, Image
 
-from .visualisation.colours.graphviz import edge_colours, node_colours
-from .defaults import pics_path
+from ebel_rest.visualisation.colours.graphviz import edge_colours, node_colours
+from ebel_rest.defaults import pics_path
 
 
 pd.set_option('display.max_colwidth', None)

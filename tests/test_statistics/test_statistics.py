@@ -1,6 +1,7 @@
 """Testing module for statistics"""
 import pandas as pd
-from ebel_rest import statistics, connect
+from ebel_rest import connect
+from ebel_rest.manager import statistics
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
 
