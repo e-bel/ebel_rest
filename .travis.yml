@@ -1,4 +1,4 @@
-sudo: false
+root: false
 cache: pip
 
 language: python
