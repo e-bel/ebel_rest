@@ -1,5 +1,6 @@
 """Testing module for query"""
 from ebel_rest import connect
+from ebel_rest.manager.core import Client
 from ebel_rest.manager import query
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
@@ -40,5 +41,12 @@ class TestQuery:
         q = query.list_pmids()
         assert type(q) == list
         assert len(q) > 0
+
+    def test_find_contradictions(self):
+        q = query.find_contradictions()
+        assert type(q) == Client
+        assert len(q.data) > 0
+        assert len(q.table.columns) > 5
+
 
 # TODO write tests for "subgraph"
