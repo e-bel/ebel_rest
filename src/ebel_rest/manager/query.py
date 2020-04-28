@@ -1,5 +1,4 @@
-from .core import Graph, Client
-from typing import List
+from ebel_rest.manager.core import Graph, Client
 
 
 def annotation(namespace: str, name: str = '') -> Graph:
@@ -41,6 +40,10 @@ def path(from_gene: str, to_gene: str, min_edges: int = 1, max_edges: int = 4) -
 
 def belish(statement: str) -> Graph:
     return Graph().apply_api_function('_belish', statement)
+
+
+def find_contradictions() -> Client:
+    return Client().apply_api_function('find_contradictions')
 
 
 # TODO: Implemnet this in ebel
