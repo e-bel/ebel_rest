@@ -31,6 +31,13 @@ class TestExport:
         assert os.path.getsize(gfp) > 0  # Check file is not empty
         assert os.path.getsize(mfp) > 0
 
+    def test_csv(self):
+        gfp, mfp = export_graph(graph_path=TEST_GFP, output_file_format='csv', mapping_path=TEST_MFP)
+        assert os.path.isfile(gfp)
+        assert os.path.isfile(mfp)
+        assert os.path.getsize(gfp) > 0  # Check file is not empty
+        assert os.path.getsize(mfp) > 0
+
     def test_json(self):
         gfp, mfp = export_graph(graph_path=TEST_GFP, output_file_format='json', mapping_path=TEST_MFP)
         assert os.path.isfile(gfp)

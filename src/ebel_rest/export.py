@@ -20,10 +20,11 @@ def export_graph(graph_path: str,
     ----------
     graph_path: str
         Write file path.
-    output_file_format: {'lst', 'sif', 'json'}
+    output_file_format: {'lst', 'sif', 'json', 'csv'}
         Graph export format. Can be on of the following:
             * Edge list (.lst)
-            * SIF (Simple Interaction Format): csv, tsv, txt
+            * SIF (Simple Interaction Format): tsv, txt
+            * CSV
             * JSON
     mapping_path: str
         File path for generate mapping file of node identifiers to index. If None, defaults to same directory as given
@@ -44,11 +45,11 @@ def export_graph(graph_path: str,
     path: str
         The path to which the file was written to.
     """
-    if output_file_format not in ['lst', 'sif', 'json']:
-        raise ValueError("output_file_format must be either 'lst', 'sif', or 'json'")
+    if output_file_format not in ['lst', 'sif', 'json', 'csv']:
+        raise ValueError("output_file_format must be either 'lst', 'sif', 'csv', or 'json'")
 
-    if output_file_format == 'sif' and graph_delim not in ['\t', ',', ' ']:
-        raise ValueError("delimiter must be either '\t', ',', ' '")
+    if output_file_format == 'sif' and graph_delim not in ['\t', ' ']:
+        raise ValueError("delimiter for a SIF must be either tab-separated ('\t') or space-separated (' ')")
 
     # Set which API function to call
     api_func = "export_full" if output_file_format == 'json' else 'export_slim'
@@ -56,11 +57,11 @@ def export_graph(graph_path: str,
     odb_results = Client().apply_api_function(api_func).data  # raw data
     mapping_dict = _create_mapping(relations=odb_results)  # Integer mappings
 
-    if output_file_format == 'sif':
-        prepared_sif_data = _prepare_sif(odb_relations=odb_results, mapping=mapping_dict)
-        graph_file = _write_sif_file(graph_path=graph_path,
-                                     graph_data=prepared_sif_data,
-                                     delimiter=graph_delim)
+    if output_file_format in ['sif', 'csv']:
+        prepared_sif_data = _prepare_sif_csv(odb_relations=odb_results, mapping=mapping_dict)
+        graph_file = _write_sif_csv_file(graph_path=graph_path,
+                                         graph_data=prepared_sif_data,
+                                         delimiter=graph_delim)
 
     elif output_file_format == 'lst':
         prepared_list_data = _prepare_edge_list(odb_relations=odb_results, mapping=mapping_dict)
@@ -120,8 +121,8 @@ def _write_mapping(mapping_data: dict, graph_path: str, delimiter: str, mapping_
     return mapping_path
 
 
-def _prepare_sif(odb_relations: List[dict], mapping: dict) -> dict:
-    """Method for preparing relation tuples and mappings."""
+def _prepare_sif_csv(odb_relations: List[dict], mapping: dict) -> dict:
+    """Method for preparing relation tuples and mappings for CSV and SIF files."""
     # Create a set of nodes and generate a mapping of RIDs to integers
 
     triples = dict()
@@ -142,8 +143,8 @@ def _prepare_sif(odb_relations: List[dict], mapping: dict) -> dict:
     return triples
 
 
-def _write_sif_file(graph_path: str, graph_data: dict, delimiter: str = None) -> str:
-    """Method for writing sif graph data to file."""
+def _write_sif_csv_file(graph_path: str, graph_data: dict, delimiter: str = None) -> str:
+    """Method for writing SIF or CSV graph data to file."""
     with open(graph_path, 'w') as graph_file:
         graph_writer = csv.writer(graph_file, delimiter=delimiter or ',')
         for out_node in graph_data:
