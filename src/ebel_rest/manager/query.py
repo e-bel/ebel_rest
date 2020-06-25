@@ -12,21 +12,61 @@ def annotation(namespace: str, name: str = '') -> Graph:
     return Graph().apply_api_function('_bel_by_annotation', namespace, name)
 
 
-def last_author(namespace: str, name: str = '') -> Graph:
-    return Graph().apply_api_function('_bel_by_last_author', namespace, name)
+def last_author(author: str, edge_class: str = '', node_class: str = '', exclude_namespace: str = '') -> Graph:
+    """Retrieve a list of BEL statements defined by a last author and filtered using edge/node classes or
+    node namespace.
+
+    Parameters
+    ----------
+    author: str
+        Last name and first initial of the last author of a publication e.g. "Neumann H".
+    edge_class: str
+        Type of edge class to include in results. Can be specific (e.g. 'increases') or a parent class (e.g. 'causal').
+    node_class: str
+        Type of node class to include in results. Can be specific (e.g. 'protein') or a parent class (e.g. 'bel').
+    exclude_namespace: str
+        A namespace to exclude such as 'MGI' to exclude mouse proteins.
+
+    Returns
+    -------
+    Graph object.
+    """
+    return Graph().apply_api_function('_bel_by_last_author', author, edge_class, node_class, exclude_namespace)
 
 
 def pmid(pmid: int) -> Graph:
+    """Retrieve a list of BEL statements extracted from a given PMID.
+
+    Parameters
+    ----------
+    pmid: int
+        PubMed ID of a publication.
+
+    Returns
+    -------
+    Graph
+    """
     return Graph().apply_api_function('_bel_by_pmid', pmid)
 
 
 def list_pmids() -> list:
-    """Returns a list of PMIDs in KG."""
+    """Returns a list of curated PMIDs in the knowledge graph."""
     return Client().apply_api_function('all_pmids').table['distinct'].values.tolist()
 
 
-def subgraph(namespace: str, name: str = '') -> Graph:
-    return Graph().apply_api_function('_bel_by_subgraph', namespace, name)
+def subgraph(subgraph_name: str = '') -> Graph:
+    """Retrieve a list of BEL statements with the given subgraph_name in their annotations.
+
+    Parameters
+    ----------
+    subgraph_name: str
+        The name of an annotation used for identifying relationships part of a subgraph or pathway.
+
+    Returns
+    -------
+    Graph
+    """
+    return Graph().apply_api_function('_bel_by_subgraph', subgraph_name)
 
 
 def causal_correlative_by_gene(gene_symbol: str) -> Graph:
@@ -62,10 +102,23 @@ def path(source: str, target: str, min_edges: int = 1, max_edges: int = 4) -> Gr
 
 
 def belish(statement: str) -> Graph:
+    """Retrieve a list of BEL statements that match the given customized BEL statement.
+
+    Parameters
+    ----------
+    statement: str
+        BEL like statement in which "?" serve as wild cards. Example: 'p(?) causal p(?)'
+
+    Returns
+    -------
+    Graph
+    """
     return Graph().apply_api_function('_belish', statement)
 
 
 def find_contradictions() -> Client:
+    """Returns a list of contradictions in the knowledge graph. A contradiction is defined as edges of opposite
+    types (e.g. increases/decreases) existing between the same out node and in node."""
     return Client().apply_api_function('find_contradictions')
 
 

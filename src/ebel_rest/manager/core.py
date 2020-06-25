@@ -124,16 +124,16 @@ class Graph(Client):
             raise Exception('Second element is not a graph')
 
     def __or__(self, other):
-        """
-        Return new graph with edges in both graphs.
+        """Return new graph with edges in both graphs.
+
         :param other: BEL graph
         :return: BEL graph
         """
         return self.__add__(other)
 
     def __add__(self, other):
-        """
-        Return new graph with edges in both graphs.
+        """Return new graph with edges in both graphs.
+
         :param other: BEL graph
         :return: BEL graph
         """
@@ -148,8 +148,8 @@ class Graph(Client):
             raise Exception('Second element is not a graph')
 
     def __sub__(self, other):
-        """
-        Return new graph with edges in this, but not the other graph.
+        """Return new graph with edges in this, but not the other graph.
+
         :param other: BEL graph
         :return: BEL graph
         """
@@ -194,15 +194,15 @@ class Graph(Client):
             raise Exception('Second element is not a graph')
 
     def __len__(self) -> int:
-        """
-        Return number of edges.
+        """Return number of edges.
+
         :return: int
         """
         return len(self.edge_ids)
 
     def __eq__(self, other):
-        """
-        Return true if both graphs are equivalent.
+        """Return true if both graphs are equivalent.
+
         :param other: BEL graph
         :return:
         """
@@ -212,8 +212,8 @@ class Graph(Client):
             raise Exception('Second element is not a graph')
 
     def __ne__(self, other):
-        """
-        Return true if both graphs are not equivalent.
+        """Return true if both graphs are not equivalent.
+
         :param other: BEL graph
         :return:
         """
@@ -223,15 +223,19 @@ class Graph(Client):
             raise Exception('Second element is not a graph')
 
     def as_graph(self):
+        """Creates a simple graph visualization."""
         self._ebel_graph(False, False)
 
     def as_graph_with_ids(self):
+        """Creates a graph visualization that includes the edge ID numbers."""
         self._ebel_graph(True, False)
 
     def as_graph_bel(self):
+        """Creates a graph visualization with the nodes as BEL statements."""
         self._ebel_graph(False, True)
 
     def as_graph_bel_with_ids(self):
+        """Creates a graph visualization that includes both edge ID numbers and nodes as BEL statements."""
         self._ebel_graph(True, True)
 
     def _ebel_graph(self, with_edge_id, bel_names):
@@ -269,8 +273,8 @@ class Graph(Client):
         display(Image(filename=file_path))
 
     @property
-    def table_all_columns(self):
-        """Returns pandas dataframe."""
+    def table_all_columns(self) -> pd.DataFrame:
+        """Returns a pandas dataframe of the results."""
         cols = ['subject_bel',
                 'relation',
                 'object_bel',
