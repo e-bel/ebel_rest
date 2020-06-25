@@ -33,9 +33,32 @@ def causal_correlative_by_gene(gene_symbol: str) -> Graph:
     return Graph().apply_api_function('_bel_causal_correlative_by_gene', gene_symbol)
 
 
-def path(from_gene: str, to_gene: str, min_edges: int = 1, max_edges: int = 4) -> Graph:
+def path(source: str, target: str, min_edges: int = 1, max_edges: int = 4) -> Graph:
+    """Generates a graph of all paths from a source node to a target node.
+
+    Parameters
+    ----------
+    source: str
+        Label of the source node.
+    target: str
+        Label of the target node.
+    min_edges: int
+        The minimum number of edges between the source and target nodes. Must be > 1 and < max_edges.
+    max_edges: int
+        The maximum number of edges between the source and target nodes. Must be > min_edges.
+
+    Returns
+    -------
+    Graph object
+    """
     num_range = f"{min_edges}-{max_edges}"
-    return Graph().apply_api_function('_bel_path', from_gene, to_gene, num_range)
+    if min_edges > max_edges:
+        raise ValueError("min_edges must be a smaller value than max_edges!")
+
+    if min_edges < 1:
+        raise ValueError("min_edges must a value greater than 1!")
+
+    return Graph().apply_api_function('_bel_path', source, target, num_range)
 
 
 def belish(statement: str) -> Graph:
