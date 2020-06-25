@@ -94,13 +94,13 @@ class TestStatistics:
         assert len(pivot.columns) >= 0
         assert len(pivot.index) > 0
 
-    def test_nodes_by_pmid(self):
-        no_pivot = statistics.nodes_by_pmid(pivot=False)
-        assert no_pivot.data is not None
-        assert len(no_pivot.table.columns) == 2
-        assert len(no_pivot.table.index) > 0
-
-        pivot = statistics.nodes_by_pmid(pivot=True)
-        assert isinstance(pivot, pd.DataFrame)
-        assert len(pivot.columns) >= 0
-        assert len(pivot.index) > 0
+    # def test_nodes_by_pmid(self):
+    #     no_pivot = statistics.nodes_by_pmid(pivot=False)
+    #     assert no_pivot.data is not None
+    #     assert len(no_pivot.table.columns) == 2
+    #     assert len(no_pivot.table.index) > 0
+    #
+    #     pivot = statistics.nodes_by_pmid(pivot=True)
+    #     assert isinstance(pivot, pd.DataFrame)
+    #     assert len(pivot.columns) >= 0
+    #     assert len(pivot.index) > 0
