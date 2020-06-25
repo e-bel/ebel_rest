@@ -13,9 +13,6 @@ from ebel_rest.visualisation.colours.graphviz import edge_colours, node_colours
 from ebel_rest.defaults import pics_path
 
 
-pd.set_option('display.max_colwidth', None)
-
-
 class Connector:
     user = None
     password = None
