@@ -47,7 +47,7 @@ class Client:
         self.print_url = Connector.print_url
 
     def _get_data(self, function_name, *args):
-        """Get data."""
+        """Get data ."""
         parameters = []
         for arg in args:
             parameters.append(urllib.parse.quote(str(arg)))
