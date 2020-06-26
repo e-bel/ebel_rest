@@ -128,7 +128,7 @@ def sql(sql_query: str = '') -> Client:
     :param str sql_query: a valid OrientDB style SQL query for a knowledge graph built by e(BE:L).
     :return: Client
     """
-    return Client().apply_api_function('_sql')
+    return Client().apply_api_function('_sql', sql_query)
 
 
 # TODO: Implemnet this in ebel
