@@ -122,6 +122,11 @@ def find_contradictions() -> Client:
     return Client().apply_api_function('find_contradictions')
 
 
+def sql() -> Client:
+    """Executes an SQL function in the Knowledge Graph."""
+    return Client().apply_api_function('_sql')
+
+
 # TODO: Implemnet this in ebel
 # def get_all_causal():
 #     return Graph().apply_api_function('get_all_causal')
