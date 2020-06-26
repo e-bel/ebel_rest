@@ -122,8 +122,12 @@ def find_contradictions() -> Client:
     return Client().apply_api_function('find_contradictions')
 
 
-def sql() -> Client:
-    """Executes an SQL function in the Knowledge Graph."""
+def sql(sql_query: str = '') -> Client:
+    """Executes an SQL function in the Knowledge Graph.
+
+    :param str sql_query: a valid OrientDB style SQL query for a knowledge graph built by e(BE:L).
+    :return: Client
+    """
     return Client().apply_api_function('_sql')
 
 
