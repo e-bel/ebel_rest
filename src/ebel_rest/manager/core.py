@@ -82,7 +82,7 @@ class Client:
         if len(self._data):
             if 'edge_id' in self._data[0].keys():
                 cols = ['subject_bel', 'relation', 'object_bel', 'pmid', 'edge_id']
-                results = [tuple([x[col] for col in cols]) for x in self._data]
+                results = [tuple([x[col] for col in cols if col in x]) for x in self._data]
                 df = pd.DataFrame(results, columns=cols)
                 df.set_index('edge_id', inplace=True)
             else:
