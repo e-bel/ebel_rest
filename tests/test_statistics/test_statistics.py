@@ -83,24 +83,24 @@ class TestStatistics:
         assert stats.data is not None
         assert stats.table.shape == (1, 1)
 
-    def test_edges_by_pmid(self):
-        no_pivot = statistics.edges_by_pmid(pivot=False)
-        assert no_pivot.data is not None
-        assert len(no_pivot.table.columns) == 3
-        assert len(no_pivot.table.index) > 0
+    # def test_edges_by_pmid(self):
+    #     no_pivot = statistics.edges_by_pmid(pivot=False)
+    #     assert no_pivot.data is not None
+    #     assert len(no_pivot.table.columns) == 3
+    #     assert len(no_pivot.table.index) > 0
+    #
+    #     pivot = statistics.edges_by_pmid(pivot=True)
+    #     assert isinstance(pivot, pd.DataFrame)
+    #     assert len(pivot.columns) >= 0
+    #     assert len(pivot.index) > 0
 
-        pivot = statistics.edges_by_pmid(pivot=True)
-        assert isinstance(pivot, pd.DataFrame)
-        assert len(pivot.columns) >= 0
-        assert len(pivot.index) > 0
-
-    def test_nodes_by_pmid(self):
-        no_pivot = statistics.nodes_by_pmid(pivot=False)
-        assert no_pivot.data is not None
-        assert len(no_pivot.table.columns) == 2
-        assert len(no_pivot.table.index) > 0
-
-        pivot = statistics.nodes_by_pmid(pivot=True)
-        assert isinstance(pivot, pd.DataFrame)
-        assert len(pivot.columns) >= 0
-        assert len(pivot.index) > 0
+    # def test_nodes_by_pmid(self):
+    #     no_pivot = statistics.nodes_by_pmid(pivot=False)
+    #     assert no_pivot.data is not None
+    #     assert len(no_pivot.table.columns) == 2
+    #     assert len(no_pivot.table.index) > 0
+    #
+    #     pivot = statistics.nodes_by_pmid(pivot=True)
+    #     assert isinstance(pivot, pd.DataFrame)
+    #     assert len(pivot.columns) >= 0
+    #     assert len(pivot.index) > 0
