@@ -1,6 +1,5 @@
 """Testing module for query"""
 from ebel_rest import connect
-from ebel_rest.manager.core import Client
 from ebel_rest.manager import query
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
@@ -28,7 +27,7 @@ class TestQuery:
         assert len(q.table.index) > 0
 
     def test_path(self):
-        q = query.path("ACE2", "COVID-19", 1, 2)
+        q = query.path("ACE2", "AGTR1", 1, 1)
         assert len(q.table.columns) >= 4
         assert len(q.table.index) > 0
 
