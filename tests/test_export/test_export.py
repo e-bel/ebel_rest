@@ -64,9 +64,9 @@ class TestExport:
     def test_delim_defense(self):
         with pytest.raises(ValueError) as e:
             export_graph(graph_path=TEST_GFP,
-                                    output_file_format='sif',
-                                    mapping_path=TEST_MFP,
-                                    graph_delim='^',)
+                         output_file_format='sif',
+                         mapping_path=TEST_MFP,
+                         graph_delim='^',)
         assert str(e.value) == "Delimiter for a SIF must be either tab-separated ('\t') or space-separated (' ')"
 
     def test_remove_test_files(self):
