@@ -139,8 +139,8 @@ class Exporter:
         """Prepares edge list data for export."""
         edges = []
         for rel in self.odb_results:
-            out_node = self.mapping_dict[rel.pop('out_rid')][INDEX]
-            in_node = self.mapping_dict[rel.pop('in_rid')][INDEX]
+            out_node = self.mapping_dict[rel['out_rid']][INDEX]
+            in_node = self.mapping_dict[rel['in_rid']][INDEX]
             edges.append((out_node, in_node))
 
         return edges
@@ -179,9 +179,9 @@ class Exporter:
 
         triples = dict()
         for rel in self.odb_results:
-            out_node = self.mapping_dict[rel.pop('out_rid')][INDEX]
-            relation = rel.pop('relation')
-            in_node = self.mapping_dict[rel.pop('in_rid')][INDEX]
+            out_node = self.mapping_dict[rel['out_rid']][INDEX]
+            relation = rel['relation']
+            in_node = self.mapping_dict[rel['in_rid']][INDEX]
 
             if out_node not in triples:
                 triples[out_node] = {relation: [in_node]}

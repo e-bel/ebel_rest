@@ -55,18 +55,12 @@ class TestExport:
 
     def test_output_format_defense(self):
         with pytest.raises(ValueError) as e:
-            export_graph(graph_path=TEST_GFP, output_file_format='foo', mapping_path=TEST_MFP)
+            exp.write_results(set_graph_file_format='foo')
         assert str(e.value) == "output_file_format must be either 'lst', 'sif', 'csv', or 'json'"
-
-    def test_missing_map_path(self):
-        export_graph(graph_path=TEST_GFP, output_file_format='sif', graph_delim='\t')
 
     def test_delim_defense(self):
         with pytest.raises(ValueError) as e:
-            export_graph(graph_path=TEST_GFP,
-                         output_file_format='sif',
-                         mapping_path=TEST_MFP,
-                         graph_delim='^',)
+            exp.write_results(set_graph_file_format='sif', set_graph_file_delim='^')
         assert str(e.value) == "Delimiter for a SIF must be either tab-separated ('\t') or space-separated (' ')"
 
     def test_remove_test_files(self):
