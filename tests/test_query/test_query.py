@@ -1,4 +1,6 @@
 """Testing module for query"""
+import pytest
+
 from ebel_rest import connect
 from ebel_rest.manager import query
 from ..constants import USER, PASSWORD, DATABASE, SERVER
@@ -31,10 +33,27 @@ class TestQuery:
         assert len(q.table.columns) >= 4
         assert len(q.table.index) > 0
 
+    def test_path_max_greater_min_error(self):
+        with pytest.raises(ValueError) as e:
+            query.path("ACE2", "AGTR1", 4, 1)
+        assert str(e.value) == "min_edges must be a smaller value than max_edges!"
+
+    def test_path_min_greater_0_error(self):
+        with pytest.raises(ValueError) as e:
+            query.path("ACE2", "AGTR1", 0, 1)
+        assert str(e.value) == "min_edges must a value greater than 1!"
+
     def test_belish(self):
         q = query.belish('p(HGNC:"ACE2") ? ?')
         assert len(q.table.columns) >= 4
         assert len(q.table.index) > 0
+
+    def test_sql(self):
+        csql = "SELECT name as bel_name FROM bel LIMIT 1"
+        q = query.sql(csql)
+        assert 'bel_name' in list(q.table.columns)
+        assert len(q.table.columns) == 1
+        assert len(q.table.index) == 1
 
     def test_list_pmids(self):
         q = query.list_pmids()
