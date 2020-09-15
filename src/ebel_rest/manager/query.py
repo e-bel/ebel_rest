@@ -1,5 +1,5 @@
 from ebel_rest.manager.core import Graph, Client
-from ebel_rest.manager.ss_functions import *
+from ebel_rest.manager import ss_functions
 
 
 def annotation(namespace: str, name: str = '') -> Graph:
@@ -10,7 +10,7 @@ def annotation(namespace: str, name: str = '') -> Graph:
     :return: Graph of the results
     :rtype: Graph
     """
-    return Graph().apply_api_function(BEL_BY_ANNOTATION, namespace, name)
+    return Graph().apply_api_function(ss_functions.BEL_BY_ANNOTATION, namespace, name)
 
 
 def last_author(author: str, edge_class: str = '', node_class: str = '', exclude_namespace: str = '') -> Graph:
@@ -32,7 +32,11 @@ def last_author(author: str, edge_class: str = '', node_class: str = '', exclude
     -------
     Graph object.
     """
-    return Graph().apply_api_function(BEL_BY_LAST_AUTHOR, author, edge_class, node_class, exclude_namespace)
+    return Graph().apply_api_function(ss_functions.BEL_BY_LAST_AUTHOR,
+                                      author,
+                                      edge_class,
+                                      node_class,
+                                      exclude_namespace)
 
 
 def pmid(pmid: int) -> Graph:
@@ -47,12 +51,12 @@ def pmid(pmid: int) -> Graph:
     -------
     Graph
     """
-    return Graph().apply_api_function(BEL_BY_PMID, pmid)
+    return Graph().apply_api_function(ss_functions.BEL_BY_PMID, pmid)
 
 
 def list_pmids() -> list:
     """Returns a list of curated PMIDs in the knowledge graph."""
-    return Client().apply_api_function(ALL_PMIDS).table['distinct'].values.tolist()
+    return Client().apply_api_function(ss_functions.ALL_PMIDS).table['distinct'].values.tolist()
 
 
 def subgraph(subgraph_name: str = '') -> Graph:
@@ -67,11 +71,11 @@ def subgraph(subgraph_name: str = '') -> Graph:
     -------
     Graph
     """
-    return Graph().apply_api_function(BEL_BY_SUBGRAPH, subgraph_name)
+    return Graph().apply_api_function(ss_functions.BEL_BY_SUBGRAPH, subgraph_name)
 
 
 def causal_correlative_by_gene(gene_symbol: str) -> Graph:
-    return Graph().apply_api_function(BEL_CAUSAL_CORRELATIVE_BY_GENE, gene_symbol)
+    return Graph().apply_api_function(ss_functions.BEL_CAUSAL_CORRELATIVE_BY_GENE, gene_symbol)
 
 
 def path(source: str, target: str, min_edges: int = 1, max_edges: int = 4) -> Graph:
@@ -99,7 +103,7 @@ def path(source: str, target: str, min_edges: int = 1, max_edges: int = 4) -> Gr
     if min_edges < 1:
         raise ValueError("min_edges must a value greater than 1!")
 
-    return Graph().apply_api_function(BEL_PATH, source, target, num_range)
+    return Graph().apply_api_function(ss_functions.BEL_PATH, source, target, num_range)
 
 
 def belish(statement: str) -> Graph:
@@ -114,7 +118,7 @@ def belish(statement: str) -> Graph:
     -------
     Graph
     """
-    return Graph().apply_api_function(BELISH, statement)
+    return Graph().apply_api_function(ss_functions.BELISH, statement)
 
 
 def find_contradictions() -> Client:
@@ -129,7 +133,7 @@ def sql(sql_query: str = '') -> Client:
     :param str sql_query: a valid OrientDB style SQL query for a knowledge graph built by e(BE:L).
     :return: Client
     """
-    return Client().apply_api_function(DIRECT_SQL, sql_query)
+    return Client().apply_api_function(ss_functions.DIRECT_SQL, sql_query)
 
 
 # TODO: Implemnet this in ebel
