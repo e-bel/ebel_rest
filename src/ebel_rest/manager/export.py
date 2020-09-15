@@ -78,7 +78,7 @@ class Exporter:
 
     def write_results(self, set_graph_file_format: str = None, set_graph_file_delim: str = None) -> Tuple[str, str]:
         """Write the retrieved data to file.
-        
+
         Parameters
         ----------
         set_graph_file_format: str
