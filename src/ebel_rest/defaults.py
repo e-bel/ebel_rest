@@ -1,8 +1,10 @@
 import os
 
-LIBRARY_NAME = 'ebel_rest'
-HOME = os.path.expanduser('~')
-LIBRARY_PATH = os.path.join(HOME, LIBRARY_NAME)
+from pathlib import Path
 
-pics_path = os.path.join(LIBRARY_PATH, 'pics/algorithms/')
+HOME = str(Path.home())
+PROJECT = '.ebel_rest'
+PROJECT_PATH = os.path.join(HOME, PROJECT)
+
+pics_path = os.path.join(PROJECT_PATH, 'pics/algorithms/')
 os.makedirs(pics_path, exist_ok=True)
