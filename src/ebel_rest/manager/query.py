@@ -56,7 +56,7 @@ def pmid(pmid: int) -> Graph:
 
 def list_pmids() -> list:
     """Returns a list of curated PMIDs in the knowledge graph."""
-    return Client().apply_api_function(ss_functions.ALL_PMIDS).table['distinct'].values.tolist()
+    return Client().apply_api_function(ss_functions.ALL_PMIDS).table['pmid'].values.tolist()
 
 
 def subgraph(subgraph_name: str = '') -> Graph:

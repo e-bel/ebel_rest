@@ -14,7 +14,7 @@ class TestQuery:
         assert len(q.edges) > 1
 
     def test_last_author(self):
-        q = query.last_author(['Hong W'])
+        q = query.last_author('Hong W')
         assert len(q.table.columns) >= 4
         assert len(q.table.index) > 0
 

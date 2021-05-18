@@ -2,6 +2,6 @@
 Graph login information."""
 
 USER = "covid_user"
-SERVER = "http://graphstore.scai.fraunhofer.de"
+SERVER = "https://graphstore.scai.fraunhofer.de"
 PASSWORD = "covid"
 DATABASE = "covid"

@@ -1,1 +1,1 @@
-"""Collection of tests for the statistics submodule."""
+"""Collection of tests for the package."""

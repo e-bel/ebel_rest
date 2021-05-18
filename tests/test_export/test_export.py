@@ -1,18 +1,17 @@
 """Export module tests."""
 import os
 import pytest
+import pathlib
 
 from ebel_rest import connect, export_graph
 from ebel_rest.manager.export import Exporter
-from ebel_rest.defaults import LIBRARY_PATH
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
-TEST_GRAPH_FILE = 'graph_test.txt'
-TEST_MAP_FILE = 'map_test.txt'
+EXPORT_DIR = pathlib.Path(__file__).parent.absolute()
 
-TEST_GFP = os.path.join(LIBRARY_PATH, TEST_GRAPH_FILE)
-TEST_MFP = os.path.join(LIBRARY_PATH, TEST_MAP_FILE)
-TEST_MISSING_MFP = os.path.join(LIBRARY_PATH, "node_map.tsv")
+TEST_GFP = os.path.join(EXPORT_DIR, 'graph_test.txt')
+TEST_MFP = os.path.join(EXPORT_DIR, 'map_test.txt')
+TEST_MISSING_MFP = os.path.join(EXPORT_DIR, "node_map.tsv")
 
 connect(USER, PASSWORD, SERVER, DATABASE)
 
