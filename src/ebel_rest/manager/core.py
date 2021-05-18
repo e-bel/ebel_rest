@@ -121,7 +121,7 @@ class Graph(Client):
             new_graph.function_name = "joined_graph"
             return new_graph
         else:
-            raise Exception('Second element is not a graph')
+            raise IOError('Second element is not a graph')
 
     def __or__(self, other):
         """Return new graph with edges in both graphs.
@@ -145,7 +145,7 @@ class Graph(Client):
             new_graph.function_name = "joined_graph"
             return new_graph
         else:
-            raise Exception('Second element is not a graph')
+            raise IOError('Second element is not a graph')
 
     def __sub__(self, other):
         """Return new graph with edges in this, but not the other graph.
@@ -161,7 +161,7 @@ class Graph(Client):
             new_graph.function_name = "subtracted_graph"
             return new_graph
         else:
-            raise Exception('Second element is not a graph')
+            raise IOError('Second element is not a graph')
 
     def __and__(self, other):
         """
@@ -177,21 +177,21 @@ class Graph(Client):
             new_graph.function_name = "unioned_graph"
             return new_graph
         else:
-            raise Exception('Second element is not a graph')
+            raise IOError('Second element is not a graph')
 
     def __ge__(self, other) -> bool:
         """Test whether every this graph is a supergraph of other graph."""
         if isinstance(other, Graph):
             return self.edge_ids.issuperset(other.edge_ids)
         else:
-            raise Exception('Second element is not a graph')
+            raise IOError('Second element is not a graph')
 
     def __le__(self, other) -> bool:
         """Test whether every edge in this graph is in other graph."""
         if isinstance(other, Graph):
             return self.edge_ids.issubset(other.edge_ids)
         else:
-            raise Exception('Second element is not a graph')
+            raise IOError('Second element is not a graph')
 
     def __len__(self) -> int:
         """Return number of edges.
@@ -209,7 +209,7 @@ class Graph(Client):
         if isinstance(other, Graph):
             return self.edge_ids == other.edge_ids
         else:
-            raise Exception('Second element is not a graph')
+            raise IOError('Second element is not a graph')
 
     def __ne__(self, other):
         """Return true if both graphs are not equivalent.
@@ -220,7 +220,7 @@ class Graph(Client):
         if isinstance(other, Graph):
             return self.edge_ids != other.edge_ids
         else:
-            raise Exception('Second element is not a graph')
+            raise IOError('Second element is not a graph')
 
     def as_graph(self):
         """Creates a simple graph visualization."""
