@@ -1,4 +1,4 @@
-graft src
+graft ebel_rest
 graft tests
 
 recursive-include docs/source *.py
