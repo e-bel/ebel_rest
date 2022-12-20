@@ -4,7 +4,7 @@ import pytest
 import pathlib
 
 from ebel_rest import connect, export_graph
-from ebel_rest.manager.export import Exporter
+from ebel_rest import Exporter
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
 EXPORT_DIR = pathlib.Path(__file__).parent.absolute()

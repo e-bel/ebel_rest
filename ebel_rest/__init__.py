@@ -1,7 +1,7 @@
 """Top-level package for eBEL API client."""
 
 from ebel_rest.manager.core import connect
-from ebel_rest.manager.export import export_graph
+from ebel_rest.manager.export import export_graph, Exporter
 from ebel_rest.manager import export, query, statistics
 
 __author__ = """Christian Ebeling"""
