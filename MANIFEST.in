@@ -9,6 +9,6 @@ recursive-include notebooks *.ipynb
 
 global-exclude *.py[cod] __pycache__ *.so .DS_Store .ipynb_checkpoints/* docs/build/*
 
-exclude docs/build
+exclude .bumpversion.cfg docs/build
 
 include *.rst *.yml LICENSE tox.ini
