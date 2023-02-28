@@ -8,7 +8,7 @@ requires = [
 
 [project]
 name = "ebel_rest"
-version = "1.0.20"
+version = "1.0.21"
 description = "e(BE:L) API client"
 authors = [
     {name = "Bruce Schultz", email = "bruce.schultz@scai.fraunhofer.de"},
