@@ -7,5 +7,5 @@ from ebel_rest.manager import export, query, statistics
 
 __author__ = """Christian Ebeling"""
 __email__ = 'Christian.Ebeling@scai.fraunhofer.de'
-__version__ = '1.0.22'
+__version__ = '1.0.23'
 
