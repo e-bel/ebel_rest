@@ -134,8 +134,3 @@ def sql(sql_query: str = '') -> Client:
     :return: Client
     """
     return Client().apply_api_function(ss_functions.DIRECT_SQL, sql_query)
-
-
-# TODO: Implemnet this in ebel
-# def get_all_causal():
-#     return Graph().apply_api_function('get_all_causal')
