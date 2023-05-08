@@ -1,7 +1,3 @@
-from collections import Counter
-
-import pandas as pd
-
 from ebel_rest.manager.core import Statistics
 from ebel_rest.manager import ss_functions
 

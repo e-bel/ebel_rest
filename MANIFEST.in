@@ -1,4 +1,4 @@
-graft src
+graft ebel_rest
 graft tests
 
 recursive-include docs/source *.py
@@ -11,4 +11,4 @@ global-exclude *.py[cod] __pycache__ *.so .DS_Store .ipynb_checkpoints/* docs/bu
 
 exclude .bumpversion.cfg docs/build
 
-include *.rst *.txt *.yml LICENSE tox.ini .flake8
+include *.rst *.yml LICENSE tox.ini

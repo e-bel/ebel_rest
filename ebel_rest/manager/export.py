@@ -164,7 +164,7 @@ class Exporter:
             directory = os.path.dirname(self.graph_path)
             self.mapping_path = os.path.join(directory, "node_map.tsv")
 
-        with open(self.mapping_path, 'w') as map_file:
+        with open(self.mapping_path, 'w', encoding='utf-8') as map_file:
             map_writer = csv.writer(map_file, delimiter=self.map_delim or '\t')
             for rid, values in self.mapping_dict.items():
                 index = values[INDEX]

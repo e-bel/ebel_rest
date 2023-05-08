@@ -2,7 +2,7 @@
 import pytest
 
 from ebel_rest import connect
-from ebel_rest.manager import query
+from ebel_rest import query
 from ..constants import USER, PASSWORD, DATABASE, SERVER
 
 

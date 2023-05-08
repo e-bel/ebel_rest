@@ -13,6 +13,32 @@ Installation |python_versions| |pypi| |pypi_license|
     $ pip install ebel_rest
 
 
+Quick Start
+------------
+
+Connect to the database using the credentials.
+
+.. code-block:: python
+
+    from ebel_rest import connect, query
+
+    # Database settings
+    server = "https://graphstore.scai.fraunhofer.de"
+    db_name = "covid"
+    user = "guest"
+    password = "guest"
+    print_url = True
+
+    # Connect to database
+    connect(user, password, server, db_name, print_url)
+
+Start making queries
+
+.. code-block:: python
+
+    pubs = statistics.publication_by_year()
+    pubs.data
+
 Usage
 --------
 This API interface package is designed to simplify communicating with an e(BE:L) generated knowledge graph. Examples
