@@ -1,5 +1,5 @@
 [build-system]
-#build-backend = "setuptools.build_meta"
+build-backend = "setuptools.build_meta"
 requires = [
     "setuptools>=61.0.0",  # Needed for `pip install`
     "wheel",
@@ -51,3 +51,28 @@ zip-safe = false
 #where = ["ebel_rest"]  # list of folders that contain the packages (["."] by default)
 include = ["ebel_rest", "ebel_rest.*"]  # package names should match these glob patterns (["*"] by default)
 namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
+
+[tool.flake8]
+# E128: continuation line under-indented for visual indent
+# F401: imported but unused
+ignore = ["E128", "F401"]
+exclude = [".git", "__pycache__", "docs"]
+max-line-length = 119
+
+[tool.coverage.run]
+branch = true
+source = ["ebel_rest"]
+omit = [
+    "tests/*",
+    "docs/*"
+]
+
+[tool.coverage.paths]
+source = [
+    "ebel_rest",
+    ".tox/*/lib/python*/site-packages/ebel_rest"
+]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = ["def __str__", "def __repr__"]

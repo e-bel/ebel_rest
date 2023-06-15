@@ -2,6 +2,7 @@
 import os
 import re
 import json
+from typing import Union
 
 import graphviz
 import urllib.parse
@@ -273,7 +274,7 @@ class Graph(Client):
         display(Image(filename=file_path))
 
     @property
-    def table_all_columns(self) -> pd.DataFrame:
+    def table_all_columns(self) -> Union[pd.DataFrame, str]:
         """Returns a pandas dataframe of the results."""
         cols = ['subject_bel',
                 'relation',
