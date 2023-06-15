@@ -65,7 +65,7 @@ class Client:
         res = urllib.request.urlopen(url)
         res_body = res.read()
 
-        self._data = json.loads(res_body)['result']
+        self._data = json.loads(res_body, strict=False)['result']
 
     def apply_api_function(self, function_name, *args):
         self.function_name = function_name
